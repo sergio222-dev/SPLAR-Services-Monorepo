@@ -38,6 +38,8 @@ namespace SPLAR.Shared
 
         public IConfiguration Configuration => _oConfiguration;
 
+        public IConfiguration InternalConfiguration { get; set; }
+
         #endregion
 
         #region Constructors

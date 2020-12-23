@@ -21,22 +21,20 @@ namespace CallCommand
                 var sType = "";
                 var sCommand = "";
                 
-                if (args.Length > 0)
+                if(args.Length == 0) throw new Exception("Indique el comando que quiere mandar al server, siendo 1 para create anime y 2 para delete anime");
+
+                switch (args[0])
                 {
-                    switch (args[0])
-                    {
-                        case "1":
-                            sType = typeof(AnimeCreateCommand).Name;
-                            sCommand = JsonConvert.SerializeObject(new AnimeCreateCommand("Naruto", "22", "22"));
-                            break;
-                        case "2":
-                            sType = typeof(AnimeDeleteCommand).Name;
-                            sCommand = JsonConvert.SerializeObject(new AnimeDeleteCommand("Naruto"));
-                            break;
-                        default:
-                            throw new Exception("Indique el comando que quiere mandar al server, siendo 1 para create anime y 2 para delete anime");
-                    }
+                    case "1":
+                        sType = typeof(AnimeCreateCommand).Name;
+                        sCommand = JsonConvert.SerializeObject(new AnimeCreateCommand("Naruto", "22", "22"));
+                        break;
+                    case "2":
+                        sType = typeof(AnimeDeleteCommand).Name;
+                        sCommand = JsonConvert.SerializeObject(new AnimeDeleteCommand("Naruto"));
+                        break;
                 }
+
                 
                 GrpcClientFactory.AllowUnencryptedHttp2 = true;
                 using var http = GrpcChannel.ForAddress("http://localhost:5000");

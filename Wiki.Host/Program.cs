@@ -1,5 +1,6 @@
 #region Imports
 
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using SPLAR.Shared;
 using SPLAR.Wiki;
