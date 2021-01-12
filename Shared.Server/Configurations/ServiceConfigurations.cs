@@ -1,4 +1,4 @@
-namespace SPLAR.Shared.Configurations
+namespace Configurations
 {
     public class ServiceConfigurations
     {
@@ -14,5 +14,8 @@ namespace SPLAR.Shared.Configurations
         
         public string MSSSQLConnectionString { get; set; }
         
+        public string MSSSQLCatalog { get; set; }
+        
+        public string MSSSQLDataSource { get; set; }
     }
 }

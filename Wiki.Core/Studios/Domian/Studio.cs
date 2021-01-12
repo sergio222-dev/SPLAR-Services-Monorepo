@@ -1,12 +1,13 @@
 #region Imports
 
+using Domain.Aggregate;
 using SPLAR.Wiki.Shared.Domain.Studios;
 
 #endregion
 
 namespace SPAR.Wiki.Studios.Domain
 {
-    public class Studio
+    public class Studio : IAggregateRoot
     {
         #region Variables
 

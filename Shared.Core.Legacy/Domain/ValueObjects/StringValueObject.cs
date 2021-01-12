@@ -16,6 +16,10 @@ namespace SPLAR.Shared.Domain.ValueObjects
 
         #region Constructors
 
+        public StringValueObject()
+        {
+        }
+        
         public StringValueObject(string sValue)
         {
             _sValue = sValue;

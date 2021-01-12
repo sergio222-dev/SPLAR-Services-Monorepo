@@ -1,9 +1,7 @@
 #region Imports
 
+using SPAR.Shared.Domain.Bus.Command;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using SPLAR.Shared.Domain.Bus.Command;
-using SPLAR.Shared.Domain.Json;
 
 #endregion
 
@@ -12,45 +10,25 @@ namespace SPLAR.Wiki.Animes.Application.Create
     [JsonObject(MemberSerialization.OptIn)]
     public sealed class AnimeCreateCommand : ICommand
     {
-        #region Variables
-
-        private string _sAnimeName;
-        private string _sAnimeId;
-        private string _sStudioId;
-
-        #endregion
-
         #region Properties
 
-        [JsonProperty] public string AnimeName => _sAnimeName;
+        [JsonProperty] public string AnimeName { get; private set; }
 
-        [JsonProperty] public string AnimeId => _sAnimeId;
+        [JsonProperty] public string AnimeId { get; private set; }
 
-        [JsonProperty] public string StudioId => _sStudioId;
+        [JsonProperty] public string StudioId { get; private set; }
 
         #endregion
 
         #region Constructs
 
+        private AnimeCreateCommand() {}
+        
         public AnimeCreateCommand(string sAnimeName, string sAnimeId, string sStudioId)
         {
-            _sAnimeName = sAnimeName;
-            _sAnimeId = sAnimeId;
-            _sStudioId = sStudioId;
-        }
-
-        #endregion
-
-        #region Statics Publics
-
-        public static ICommand FromJson(string sJson)
-        {
-            var data = JObject.Parse(sJson);
-            return new AnimeCreateCommand(
-                data.GetString("AnimeName"),
-                data.GetString("AnimeId"),
-                data.GetString("StudioId")
-            );
+            AnimeName = sAnimeName;
+            AnimeId = sAnimeId;
+            StudioId = sStudioId;
         }
 
         #endregion

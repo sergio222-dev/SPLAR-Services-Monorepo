@@ -1,6 +1,6 @@
 #region Imports
 
-using SPLAR.Shared.Domain.ValueObjects;
+using SPAR.Shared.Domain.ValueObject;
 
 #endregion
 
@@ -10,9 +10,11 @@ namespace SPAR.Wiki.Animes.Domain
     {
         #region Constructors
 
-        public AnimeName(string sName) : base(sName)
+        private AnimeName()
         {
         }
+
+        public AnimeName(string sName) : base(sName) {}
 
         #endregion
     }

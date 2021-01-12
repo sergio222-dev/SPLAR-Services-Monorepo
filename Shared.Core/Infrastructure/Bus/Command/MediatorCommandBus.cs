@@ -1,11 +1,8 @@
-#region Imports
-
+using System;
+using SPAR.Shared.Domain.Bus.Command;
 using MediatR;
-using SPLAR.Shared.Domain.Bus.Command;
 
-#endregion
-
-namespace SPLAR.Shared.Infrastructure.Bus.Command
+namespace SPAR.Shared.Infrastructure.Bus.Command
 {
     public class MediatorCommandBus : Mediator, ICommandBus
     {
@@ -21,7 +18,7 @@ namespace SPLAR.Shared.Infrastructure.Bus.Command
 
         public void Dispatch(ICommand oCommand)
         {
-            Send((IRequest) oCommand);
+            Send(oCommand);
         }
 
         #endregion

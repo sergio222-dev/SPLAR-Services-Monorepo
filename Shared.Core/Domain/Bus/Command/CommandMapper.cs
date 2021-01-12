@@ -1,7 +1,6 @@
 #region Imports
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -9,7 +8,7 @@ using System.Text.Json;
 
 #endregion
 
-namespace SPLAR.Shared.Domain.Bus.Command
+namespace SPAR.Shared.Domain.Bus.Command
 {
     public class CommandMapper
     {
@@ -30,15 +29,15 @@ namespace SPLAR.Shared.Domain.Bus.Command
 
         #region Publics
 
-        public string ToJson<T>(T oCommand) where T : ICommand
-        {
-            if (!Exists(oCommand.GetType().Name))
-            {
-                throw new Exception($"Command {typeof(T).Name} don't exists in Command list");
-            }
-
-            return JsonSerializer.Serialize(oCommand);
-        }
+        // public string ToJson<T>(T oCommand) where T : ICommand<>
+        // {
+        //     if (!Exists(oCommand.GetType().Name))
+        //     {
+        //         throw new Exception($"Command {typeof(T).Name} don't exists in Command list");
+        //     }
+        //
+        //     return JsonSerializer.Serialize(oCommand);
+        // }
 
         public Type GetCommandTypeByName(string sCommandName)
         {
@@ -53,9 +52,11 @@ namespace SPLAR.Shared.Domain.Bus.Command
             }
 
             var oCommandType = GetCommandTypeByName(sCommandName);
-            var oFromJsonMethod = GetFromJsonMethod(oCommandType);
-            var oCommand = oFromJsonMethod.Invoke(null, new object[] {sCommandData});
+            // var oFromJsonMethod = GetFromJsonMethod(oCommandType);
+            // var oCommand = oFromJsonMethod.Invoke(null, new object[] { oCommandType, sCommandData});
 
+            var oCommand = ICommand.FromJson(oCommandType, sCommandData);
+            
             return (ICommand) oCommand;
         }
 

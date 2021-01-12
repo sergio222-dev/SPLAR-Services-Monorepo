@@ -1,4 +1,4 @@
-namespace SPLAR.Shared.Domain.Bus.Command
+namespace SPAR.Shared.Domain.Bus.Command
 {
     public interface ICommandBus
     {

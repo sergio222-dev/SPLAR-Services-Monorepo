@@ -1,8 +1,12 @@
+#region Imports
+
 using System;
 using System.Threading;
 using System.Threading.Tasks;
+using SPAR.Shared.Domain.Bus.Command;
 using MediatR;
-using SPLAR.Shared.Domain.Bus.Command;
+
+#endregion
 
 namespace SPLAR.Wiki.Animes.Application.Delete
 {

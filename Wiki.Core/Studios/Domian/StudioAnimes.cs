@@ -1,6 +1,6 @@
 #region Imports
 
-using SPLAR.Shared.Domain.ValueObjects;
+using SPAR.Shared.Domain.ValueObject;
 using SPLAR.Wiki.Shared.Domain.Animes;
 
 #endregion
@@ -11,6 +11,8 @@ namespace SPAR.Wiki.Studios.Domain
     {
         #region Constructors
 
+        private StudioAnimes() {}
+        
         public StudioAnimes(AnimeId[] lstAnimeIds) : base(lstAnimeIds)
         {
         }

@@ -1,6 +1,6 @@
 #region Imports
 
-using SPLAR.Shared.Domain.ValueObjects;
+using SPAR.Shared.Domain.ValueObject;
 
 #endregion
 
@@ -10,6 +10,8 @@ namespace SPAR.Wiki.Studios.Domain
     {
         #region Constructos
 
+        private StudioName(){}
+        
         public StudioName(string sName) : base(sName)
         {
         }

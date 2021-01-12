@@ -4,7 +4,7 @@ using Newtonsoft.Json.Linq;
 
 #endregion
 
-namespace SPLAR.Shared.Domain.Json
+namespace Domain.Json
 {
     public static class JsonPropertyString
     {

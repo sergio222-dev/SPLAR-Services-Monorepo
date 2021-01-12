@@ -1,17 +1,38 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+      <PackageReference Include="Autofac" Version="6.0.0" />
+      <PackageReference Include="MediatR" Version="9.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0-alpha.1.20622.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0-alpha.1.20622.2">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.0-alpha.1.20622.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite" Version="6.0.0-alpha.1.20622.2" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.0-alpha.1.20622.2">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.Extensions.Configuration" Version="6.0.0-alpha.1.20628.4" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0-alpha.1.20628.4" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="6.0.0-alpha.1.20628.4" />
       <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Shared.Core\Shared.Core.csproj" />
-      <ProjectReference Include="..\Wiki.Shared\Wiki.Shared.csproj" />
+      <Folder Include="Studios\Infrastructure\EntityFramework" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Shared.Protos\Shared.Protos.csproj" />
+    </ItemGroup>
+
+    <Import Project="..\Shared.Core\Shared.Core.projitems" Label="Shared" />
+
+    <Import Project="..\Shared.Configurations\Shared.Configurations.projitems" Label="Shared" />
 </Project>

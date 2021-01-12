@@ -27,7 +27,7 @@ namespace CallCommand
                 {
                     case "1":
                         sType = typeof(AnimeCreateCommand).Name;
-                        sCommand = JsonConvert.SerializeObject(new AnimeCreateCommand("Naruto", "22", "22"));
+                        sCommand = JsonConvert.SerializeObject(new AnimeCreateCommand("Boruto", Guid.NewGuid().ToString(), Guid.NewGuid().ToString()));
                         break;
                     case "2":
                         sType = typeof(AnimeDeleteCommand).Name;

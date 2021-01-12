@@ -2,7 +2,7 @@ using System;
 
 namespace SPLAR.Shared.Domain.ValueObjects
 {
-    public class GuidValueObject
+    public abstract class GuidValueObject
     {
         #region Variables
 
@@ -19,7 +19,11 @@ namespace SPLAR.Shared.Domain.ValueObjects
 
         #endregion
 
-        #region Constructos
+        #region Constructors
+
+        public GuidValueObject()
+        {
+        }
 
         public GuidValueObject(Guid oValue)
         {

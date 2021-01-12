@@ -1,5 +1,6 @@
 #region Imports
 
+using Domain.Aggregate;
 using SPLAR.Wiki.Shared.Domain.Animes;
 using SPLAR.Wiki.Shared.Domain.Studios;
 
@@ -7,10 +8,14 @@ using SPLAR.Wiki.Shared.Domain.Studios;
 
 namespace SPAR.Wiki.Animes.Domain
 {
-    public class Anime
+    public class Anime : IAggregateRoot
     {
         #region Constructors
 
+        private Anime()
+        {
+        }
+        
         public Anime(AnimeId oId, AnimeName oAnimeName, StudioId oStudioId)
         {
             Id = oId;
@@ -39,11 +44,11 @@ namespace SPAR.Wiki.Animes.Domain
 
         #region Property
 
-        public AnimeId Id { get; }
+        public AnimeId Id { get; set; }
 
-        public AnimeName Name { get; }
+        public AnimeName Name { get; set; }
 
-        public StudioId StudioId { get; }
+        public StudioId StudioId { get; set; }
 
         #endregion
     }

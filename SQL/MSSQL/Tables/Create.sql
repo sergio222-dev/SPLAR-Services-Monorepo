@@ -33,3 +33,21 @@ if not exists(
         )
     end
 GO
+
+
+if not exists(
+        select *
+        from sys.objects
+        where object_id = OBJECT_ID(N'[dbo].[Customers]')
+          and type in (N'U')
+    )
+    begin
+        create table [dbo].[Customers]
+        (
+            [Id]       uniqueidentifier not null,
+            [Name]     varchar(100)     not null,
+            [StudioId] uniqueidentifier not null,
+            constraint [PK_CUSTOMER] PRIMARY KEY CLUSTERED ([Id])
+        )
+    end
+GO
